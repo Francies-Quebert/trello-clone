@@ -2,7 +2,6 @@ import { databases } from "@/appwrite"
 
 export const getTodosGroupedByColoumn = async () => {
     const data = await databases.listDocuments(process.env.NEXT_PUBLIC_DATABASE_ID!, process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!)
-    console.log(data)
     const todos = data.documents
     const coloums = todos.reduce((acc, todo) => {
         if (!acc.get(todo.status)) {
@@ -34,7 +33,6 @@ export const getTodosGroupedByColoumn = async () => {
         }
     }
 
-    console.log(coloums)
     const sortedColoumn = new Map(Array.from(coloums.entries()).sort((a, b) =>
         columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
     ))
