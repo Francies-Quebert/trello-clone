@@ -14,7 +14,7 @@ interface Todo extends Models.documents {
     $createdAt: string;
     title:string
     status: string;
-    image?: string
+    image?: string | Models.FileList
 }
 
 interface Image {
