@@ -12,6 +12,7 @@ interface Column  {
 interface Todo extends Models.documents {
     $id: string;
     $createdAt: string;
+    title:string
     status: string;
     image?: string
 }

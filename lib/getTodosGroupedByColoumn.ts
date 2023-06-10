@@ -16,11 +16,28 @@ export const getTodosGroupedByColoumn = async () => {
             $id: todo.$id,
             $createdAt: todo.$createdAt,
             status: todo.status,
+            title: todo.title,
             ...(todo.image && { image: JSON.parse(todo.image) })
         })
 
         return acc;
     }, new Map<TypeColoum, Column>)
 
+    const columnTypes: TypeColoum[] = ['todo', 'inprogress', 'done']
+    for (const columnType of columnTypes) {
+        if (!coloums.get(columnType)) {
+            coloums.set(columnType, {
+                id: columnType,
+                todos: []
+            })
+
+        }
+    }
+
     console.log(coloums)
+    const sortedColoumn = new Map(Array.from(coloums.entries()).sort((a, b) =>
+        columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
+    ))
+    const board: Board = { coloums: sortedColoumn }
+    return board
 }
