@@ -10,7 +10,6 @@ export const getTodosGroupedByColoumn = async () => {
                 todos: []
             })
         }
-
         acc.get(todo.status)!.todos.push({
             $id: todo.$id,
             $createdAt: todo.$createdAt,

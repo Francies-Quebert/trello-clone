@@ -2,7 +2,6 @@ import { formatTodosForAI } from "./formatTodosForAI";
 
 export async function fetchSuggestion(board: Board) {
     const todos = formatTodosForAI(board);
-    console.log('formated message to send', todos)
     const res = await fetch('/api/generateSummary', {
         method: 'POST',
         headers: {

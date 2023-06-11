@@ -22,7 +22,9 @@ function TodoCard({ todo, index, id, dragHandleProps, draggableProps, innerRef }
     useEffect(() => {
         if (todo.image) {
             const fetchImage = async () => {
-                const url = getURL(todo.image!)
+                let image = todo.image;
+                if (typeof todo.image === 'string') image = JSON.parse(todo.image)
+                const url = getURL(image!)
                 if (url) {
                     setImageURl(url.toString())
                 }

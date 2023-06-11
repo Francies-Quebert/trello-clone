@@ -62,7 +62,6 @@ export const useBoardStore = create<BoardStoreInterface>((set, get) => ({
         newColumns.get(id)?.todos.splice(taskIndex, 1)
         set({ board: { coloums: newColumns } })
         if (todo.image) {
-            console.log( todo.image,' todo.image')
             await storage.deleteFile(todo.image.bucketId, todo.image.fileId)
         }
 

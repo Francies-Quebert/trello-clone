@@ -17,8 +17,6 @@ export async function POST(request: Request) {
             content: `provide the summary of the folllowinf todos, count how many todo are in each category as todo, in progress and done, then tell the user to have a productive day! here's the data ${JSON.stringify(todos)}`,
         }]
     })
-    console.log(response, 'error data')
     const { data } = response
-    console.log(response, 'error data')
     return NextResponse.json(data.choices[0].message)
 }

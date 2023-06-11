@@ -17,7 +17,6 @@ function Header() {
         setLoading(true)
 
         const fetchSuggestionFnc = async () => {
-            console.log('fetchSuggestionFnc')
             const suggestion = await fetchSuggestion(board).catch(() => setLoading(false))
             setSuggestion(suggestion)
             setLoading(false)
