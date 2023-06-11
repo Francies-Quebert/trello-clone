@@ -19,5 +19,5 @@ interface Todo extends Models.documents {
 
 interface Image {
     bucketId: string;
-    fielId: string
+    fileId: string
 }
